@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IndexViewModel
+
+
+
+<h3>@Model.TeamName</h3>
+
+<!--the actual contact info of each bowler on the index page-->
+<ul class="list-group">
+    @foreach (var b in Model.Bowlers)
+    {
+        <li class="list-group-item">
+            @b.BowlerFirstName @b.BowlerMiddleInit @b.BowlerLastName
+            <br />
+            @b.BowlerAddress, @b.BowlerCity @b.BowlerState @b.BowlerZip
+            <br />
+            @b.BowlerPhoneNumber
+        </li>
+    }
+</ul>
+
+<!--page numbering info at the bottom of the page-->
+<div
+     page-info="@Model.PageNumberingInfo"
+     page-url-teamname="@Model.TeamName"
+     page-classes-enabled="true"
+     page-class="btn"
+     page-class-normal="btn-outline-secondary"
+     page-class-selected="btn-primary">
+</div>
